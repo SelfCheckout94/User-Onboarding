@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Form(props) {
-  const { values, change, disabled, submit } = props;
+  const { values, change, disabled, submit, errors } = props;
 
   const onChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -15,13 +15,15 @@ export default function Form(props) {
   };
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div>
         <h2>Add User</h2>
         <button disabled={disabled}>submit</button>
         <div className="errors">
-          <div></div>
-          <div></div>
+          <div>{errors.username}</div>
+          <div>{errors.email}</div>
+          <div>{errors.password}</div>
+          <div>{errors.tos}</div>
         </div>
         <div className="form-group inputs">
           <h4>General Informaion</h4>

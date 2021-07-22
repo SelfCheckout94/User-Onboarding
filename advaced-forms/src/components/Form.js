@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Form(props) {
-  const { values, handleChange, disabled } = props;
+  const { values, handleChange, disabled, errors, handleSubmit } = props;
 
   const onChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -9,17 +9,20 @@ export default function Form(props) {
     handleChange(name, valueToUse);
   };
 
-  const onSubmit = (e) => {};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
 
   return (
     <form onSubmit={onSubmit}>
       <div>
         <h2>Add User</h2>
         <div className="errors">
-          <div>example name error</div>
-          <div>example email error</div>
-          <div>example password error</div>
-          <div>example ToS error</div>
+          <div>{errors.firstName}</div>
+          <div>{errors.email}</div>
+          <div>{errors.password}</div>
+          <div>{errors.tos}</div>
         </div>
         <div className="inputs">
           <label>

@@ -19,7 +19,7 @@ export default function Form(props) {
       <div>
         <h2>Add User</h2>
         <div className="errors">
-          <div>{errors.firstName}</div>
+          <div>{errors["first_name"]}</div>
           <div>{errors.email}</div>
           <div>{errors.password}</div>
           <div>{errors.tos}</div>
@@ -30,7 +30,7 @@ export default function Form(props) {
             <input
               name="first name"
               type="text"
-              value={values.firstName}
+              value={values["first_name"]}
               onChange={onChange}
             />
           </label>
@@ -39,7 +39,7 @@ export default function Form(props) {
             <input
               name="last name"
               type="text"
-              value={values.lastName}
+              value={values["last_name"]}
               onChange={onChange}
             />
           </label>

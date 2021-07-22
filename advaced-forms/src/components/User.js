@@ -6,7 +6,7 @@ export default function User({ userDetails }) {
   }
   return (
     <div>
-      <h2>{`${userDetails.firstName} ${userDetails.lastName}`}</h2>
+      <h2>{`${userDetails["first_name"]} ${userDetails["last_name"]}`}</h2>
       <p>{userDetails.email}</p>
     </div>
   );

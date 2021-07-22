@@ -11,15 +11,16 @@ import schema from "./validation/formSchema";
 import { v4 as uuidv4 } from "uuid";
 
 const initialFormValues = {
-  firstName: "",
-  lastName: "",
+  first_name: "",
+  last_name: "",
   email: "",
   password: "",
   tos: false,
 };
 
 const initialFormErrors = {
-  firstName: "",
+  first_name: "",
+  last_name: "",
   email: "",
   password: "",
   tos: false,
@@ -72,7 +73,7 @@ function App() {
 
   const handleSubmit = () => {
     const newUser = {
-      first_name: formValues.firstName.trim(),
+      first_name: formValues["first_name"].trim(),
       last_name: formValues.lastName.trim(),
       email: formValues.email.trim(),
     };

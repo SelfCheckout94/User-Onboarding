@@ -10,19 +10,29 @@ import schema from "./validation/formSchema";
 import { v4 as uuidv4 } from "uuid";
 
 const initialFormValues = {
-  first_name: "",
-  last_name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   password: "",
   tos: false,
 };
 
+const initialDisabled = true;
+
 function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
-  console.log(formValues);
+  const [disabled, setDisabled] = useState(initialDisabled);
+
+  const handleChange = (name, value) => {
+    setFormValues({ ...formValues, [name]: value });
+  };
   return (
     <div className="App">
-      <Form values={formValues} />
+      <Form
+        values={formValues}
+        handleChange={handleChange}
+        disabled={disabled}
+      />
     </div>
   );
 }

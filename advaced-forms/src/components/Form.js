@@ -1,9 +1,13 @@
 import React from "react";
 
 export default function Form(props) {
-  const { values } = props;
+  const { values, handleChange, disabled } = props;
 
-  const onChange = (e) => {};
+  const onChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    const valueToUse = type === "checkbox" ? checked : value;
+    handleChange(name, valueToUse);
+  };
 
   const onSubmit = (e) => {};
 
@@ -23,7 +27,7 @@ export default function Form(props) {
             <input
               name="first name"
               type="text"
-              value={values.first_name}
+              value={values.firstName}
               onChange={onChange}
             />
           </label>
@@ -32,7 +36,7 @@ export default function Form(props) {
             <input
               name="last name"
               type="text"
-              value={values.last_name}
+              value={values.lastName}
               onChange={onChange}
             />
           </label>
@@ -59,13 +63,13 @@ export default function Form(props) {
             <input
               name="tos"
               type="checkbox"
-              value={values.tos}
+              checked={values.tos}
               onChange={onChange}
             />
           </label>
         </div>
         <div>
-          <button>Submit</button>
+          <button disabled={disabled}>Submit</button>
         </div>
       </div>
     </form>
